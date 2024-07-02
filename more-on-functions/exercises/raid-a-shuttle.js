@@ -8,6 +8,16 @@ function checkFuel(level) {
   }
 }
 
+let boringDoNotRead = function(n){
+  if (n >= 100001){
+    return n - 100001;
+  } else if ( n >= 50001){
+    return n - 50001
+  } else {
+    return n
+  }
+};
+
 function holdStatus(arr){
   if (arr.length < 7) {
     return `Spaces available: ${7-arr.length}.`;
@@ -20,25 +30,19 @@ function holdStatus(arr){
 
 let fuelLevel = 200000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
-
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
-
-/* Steal some fuel from the shuttle:
- */
- 
-//a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
-
-//b). You must siphon off fuel without alerting the TAs. Inside your function, you want to reduce the fuel level as much as possible WITHOUT changing the color returned by the checkFuel function.
-
-//c). Once you figure out how much fuel to pump out, return that value.
-
-//d). Decide where to best place your function call to gather our new fuel.
 
 /* Next, liberate some of that glorious cargo.
  */
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
+let salesTax = function(a,b){
+let pirateHold = cargoHold.slice(a,b);
+cargoHold.splice(3,0,'screen door','copy of "Despicable Me 5: Oops All Minions"');
+return pirateHold;
+};
+ 
 
 //b). You need to swipe two items from the cargo hold. Choose well. Stealing water ain’t gonna get us rich. Put the swag into a new array and return it from the function.
 
@@ -54,3 +58,11 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+
+let irs = function(f = fuelLevel,c = cargoHold){
+  let booty = salesTax(3,5);
+  let stolenFuel = boringDoNotRead(f);
+return (`Raided ${stolenFuel}kg of fuel from the tanks, and stole ${booty[0]} and ${booty[1]} from the cargo hold.`);
+};
+
+console.log(irs())

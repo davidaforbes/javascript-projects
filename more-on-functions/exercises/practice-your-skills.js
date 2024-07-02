@@ -11,5 +11,21 @@ a) Triple any the numbers.
 b) Replace any strings with “ARRR!”
 c) Print the new array to confirm your work.
 */
+let piratify = function(lubber){
+    if (typeof lubber === 'number'){
+        return lubber * 3;
+    }
+    else if (typeof lubber === 'string'){
+        return 'AAAR!';
+    }
+    else {
+        return lubber;
+    };
+}
+
 
 let arr = ['Elocution', 21, 'Clean teeth', 100];
+
+let betterArr = arr.map(piratify)
+
+console.log(betterArr)
