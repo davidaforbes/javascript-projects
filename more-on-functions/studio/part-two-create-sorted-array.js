@@ -19,7 +19,12 @@ function findMinValue(arr){
 6) Be sure to print the results in order to verify your code.*/
 
 //Your function here...
-
+function sortArray(arr){
+  let sortedArr = []
+  for(i=0; i <= arr.length; i++){
+    findMinValue()
+  }
+}
 /* BONUS MISSION: Refactor your sorting function to use recursion below:
  */
 
