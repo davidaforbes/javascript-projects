@@ -7,8 +7,49 @@
       label { display: block; margin-bottom: 7px;}
     </style>
   </head>
+  <script>
+  window.addEventListener("load", function() {
+    let form = document.querySelector("form");
+    form.addEventListener("submit", function(event) {
+      let boosterValue = document.querySelector("input[name=rocketBoosters]");
+      let testName = document.querySelector("input[name=testName]");
+      let testDate = document.querySelector("input[name=testDate]");
+      let rocketType = document.querySelector("input[name=rocketType]");
+      let rocketBoosters = document.querySelector("input[name=rocketBoosters]");
+      let windRating = document.querySelector("input[name=windRating]");
+      let productionServers = document.querySelector("input[name=productionServers]");
+      if (boosterValue.value === "" || testName.value === "" || testDate.value === "" || rocketType.value === ""|| rocketBoosters.value === ""|| windRating.value === "" || productionServers.value === "") {
+          alert ("All fields are required!");
+          event.preventDefault();
+        };
+      if (Number(rocketBoosters.value) <= 0 || Number(rocketBoosters.value) >= 10){     //This conditional is being ignored unless the above is false and I'm not sure why... else if doesn't fix it
+          alert ("Number of rocket boosters must be a whole number greater than 0 and less than 10.");
+          event.preventDefault();
+        };
+      });
+    });
+  </script>
   <body>
-    <!-- TODO: add form here -->
+    <form action="https://handlers.education.launchcode.org/request-parrot" method="POST">
+      <label>Test Name <input type="text" name="testName"/> </label>
+      <label>Test Date <input type="date" name="testDate"/> </label>
+      <label>Rocket Type 
+        <select name="rocketType">
+        <option value="">* Select One *</option>
+        <option value="brant">Brant</option>
+        <option value="lynx">Lynx</option>
+        <option value="orion">Orion</option>
+        <option value="terrier">Terrier</option>
+        </select>
+      </label>
+      <label>Number of Rocket Boosters <input type="number" name="rocketBoosters"/> </label>
+      Wind Rating
+      <label>No Wind <input type="radio" name="windRating" value="0"/> </label>
+      <label>Mild <input type="radio" name="windRating" value="10"/> </label>
+      <label>Strong <input type="radio" name="windRating" value="20"/> </label>
+      <label>Use Production Grade Servers <input type="checkbox" name="productionServers"/> </label>
+      <button>Run Simulation</button>
+    </form>
   </body>
   
 </html>
