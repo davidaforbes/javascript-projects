@@ -22,7 +22,7 @@
           alert ("All fields are required!");
           event.preventDefault();
         };
-      if (Number(rocketBoosters.value) <= 0 || Number(rocketBoosters.value) >= 10){     //This conditional is being ignored unless the above is false and I'm not sure why... else if doesn't fix it
+      if (Number(rocketBoosters.value) < 1 || Number(rocketBoosters.value) > 9) {     //This conditional is being ignored unless the above is false and I'm not sure why... else if doesn't fix it
           alert ("Number of rocket boosters must be a whole number greater than 0 and less than 10.");
           event.preventDefault();
         };
